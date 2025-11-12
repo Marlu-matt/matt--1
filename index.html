@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>protomatt</title>
+    <link rel="stylesheet" href="protodiseñomatt.css"/>
+</head>
+<body>
+
+    <!---Encabezado--->
+
+<header>
+    <button id="boton1"> 
+        <img src="contenido/img-pn/contenido-index/b-perfil.png" alt="perfil">
+    </button>
+
+<div class="backdrop" id="backdrop"></div>
+
+    <form class="login-form" id="loginForm">
+        <h3><i>iniciar seción</i></h3>
+    
+        <input type="email"  id= "loginCorreo" placeholder="correo" required>
+        <input type="password" id="loginpassword" placeholder="Contraseña" required>
+        <button typo="submit" id="btnLogin">Entrar</button>
+        <br>
+        <br>
+        <button onclick="location.href='contenido/img-pn/registro.html'">Registrarme</button>
+        <div id="loginError" style="color:red;"></div>
+    </form>
+    <div class="logo">
+    <img src="contenido/img-pn/contenido-index/Picsart_25-06-13_21-57-16-227.png" alt="logo MATT">
+    </div>
+
+    <button class="boton3">
+        <img src="contenido/img-pn/contenido-index/ubicacion.png" alt="maps">
+    </button>
+    <button class="boton2">
+        <img src="contenido/img-pn/contenido-index/b-menu.png" alt="menu">
+    </button>
+</header>
+
+<div class="cont-gen-pp"> 
+
+    <!---navegacion 1---->
+
+<nav class="nav-principal">
+    <a href="contenido/img-pn/relojes.html" class="nav-link">Relojes</a>
+    <a href="contenido/img-pn/joyas.html"class="nav-link">Joyas</a>
+    <a href="#moda"class="nav-link">Moda</a>
+</nav>
+
+   <!---navegacion 2---->
+
+   <nav class="nav-principal2">
+    <a href="#colecciones" class="nav-link2">Colecciones</a>
+    <a href="#exclusivo"class="nav-link2">Exclusivo</a>
+   </nav>
+   </div>
+
+<div class="contenedor-general">
+
+<!---contenido informativo-->
+
+<aside id="contenido-info">
+    <section class="mat-expo">
+        <h1 class="tituloexpomatt">EXPO MATT 2025</h1>
+        <div class="img-expo">
+        <p class="texto-expo"> 
+            Expo MATT abre sus puertas con una deslumbrante colección de joyas de lujo que fusionan arte, elegancia y exclusividad.
+            Bajo una cuidada puesta en escena, la exposición invita a descubrir piezas únicas engastadas con diamantes, esmeraldas y piedras preciosas, elaboradas por reconocidos maestros joyeros de todo el mundo. 
+            <br>
+            <br>
+            <img src="contenido/img-pn/contenido-index/expo 1.jpg" alt="">
+            </p>  
+        </div>
+        <div class="img-expo">
+            <p class="texto-expo">
+                <img src="contenido/img-pn/contenido-index/expo 2.jpg" alt=""> 
+                <br>
+                <br>
+                Desde diseños clásicos inspirados en la realeza hasta joyería contemporánea de autor, Expo MATT ofrece un recorrido fascinante por el universo del lujo y la artesanía fina.
+                Una experiencia sensorial que revela la belleza eterna de las joyas y el legado artístico que representan.
+            </p>
+        </div>
+        </section>
+
+         <section class="mat-ubicacion">
+            <h2 class="tituloubicacion">
+                visitanos
+            </h2>
+            <p class="texto-ubicacion"> <em>17 Marlowe Crescent, Ashbridge, Northshire, UK</em><img src="contenido/img-pn/contenido-index/ubi 1.jpeg" alt="ubi1"> </p> 
+            <br>
+            <p class="texto-ubicacion"> <em>82 Bellthorne Lane, Westwell Heath, Eastford, England</em> <img src="contenido/img-pn/contenido-index/ubi 2.jpg" alt="ubi2"> </p> 
+         </section>
+   </aside>
+
+   <!---contenido principal-->
+
+   <main class="contenido">
+    <section class="Productos">
+        <h2 class="titulo">
+            MATT
+        </h2>
+        <div class="galeria">
+            <div class="producto"><img src="contenido/img-pn/contenido-index/longuines.png" alt="longuines">
+            </div>
+            <div class="producto"><img src="contenido/img-pn/contenido-index/rolex2.png" alt="rolex2">
+            </div>
+            <div class="producto"><img src="contenido/img-pn/contenido-index/hamilton.png" alt="hamilton">
+            </div>
+        <div>
+    </section>
+
+<section class="novedades">
+    <h2 class="titulo">
+        Novedades MATT
+    </h2>
+    <div class="galeria-novedades">
+        <div>
+        <img id ="imagen-nov" src="contenido/img-pn/contenido-index/longines-conquest 1.jpg" alt="img1">
+        </div>
+        <div class="controles">                
+            <button onclick="anterior()">-</button>
+            <button onclick="siguiente()">+</button>
+        </div>
+        <p id="info-novedad">
+                Nuevas Coleciones :
+                Longines Conquest y Longines La Grande 
+            </p>
+        <div>
+        <img id ="imagen-nov2" src="contenido/img-pn/contenido-index/traje 1.jpg" alt="img2">
+        </div>
+        <div class="controles2">                
+            <button onclick="anterior2()">-</button>
+            <button onclick="siguiente2()">+</button>
+        </div>
+        <p id="info-novedad2">
+                Nuevos trajes para hombre 
+            </p>
+    </div>
+    </section>
+   </main>
+   </div>
+   <script src="diseño/protodetallematt.js"></script>
+
+<script>
+document.getElementById('Loginform').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const correo = document.getElementById('loginCorreo').value;
+        const password = document.getElementById('loginPassword').value;
+        const errorDiv = document.getElementById('loginError');
+
+fetch('http://localhost:3001/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ correo, password}) 
+})
+.then(res => res.json())
+.then(data => {
+    if (data.error) {
+            errorDiv.textContent = data.error;
+            errorDiv.style.color = 'red';
+    } else {
+            errorDiv.style.color = 'green';
+            errorDiv.textContent = data.mensaje;
+            // Aquí puedes redirigir o mostrar contenido de usuario
+            //window.location.href = "index.html";
+    }
+})
+.catch(() => {
+        errorDiv.textContent = 'Error al conectar con el servidor';
+});
+});
+</script>
+
+</body>
